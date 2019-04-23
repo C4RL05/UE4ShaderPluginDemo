@@ -176,7 +176,7 @@ void FPixelShaderUsageExample::ExecutePixelShaderInternal()
 	RHICmdList.CopyToResolveTarget(
 		CurrentRenderTarget->GetRenderTargetResource()->GetRenderTargetTexture(),
 		CurrentRenderTarget->GetRenderTargetResource()->TextureRHI,
-		false, FResolveParams());
+		FResolveParams());
 
 
 	if (bSave) //Save to disk if we have a save request!

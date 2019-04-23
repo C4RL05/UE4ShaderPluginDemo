@@ -36,10 +36,8 @@
 
 //These are needed to actually implement the constant buffers so they are available inside our shader
 //They also need to be unique over the entire solution since they can in fact be accessed from any shader
-IMPLEMENT_UNIFORM_BUFFER_STRUCT(FPixelShaderConstantParameters,
-                                TEXT("PSConstant"))
-IMPLEMENT_UNIFORM_BUFFER_STRUCT(FPixelShaderVariableParameters,
-                                TEXT("PSVariable"))
+IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT(FPixelShaderConstantParameters, "PSConstant");
+IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT(FPixelShaderVariableParameters, "PSVariable");
 
 FPixelShaderDeclaration::FPixelShaderDeclaration(const
         ShaderMetaType::CompiledShaderInitializerType& Initializer)

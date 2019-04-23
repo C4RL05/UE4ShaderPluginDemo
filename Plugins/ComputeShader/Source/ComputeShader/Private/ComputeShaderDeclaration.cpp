@@ -31,8 +31,8 @@
 
 //These are needed to actually implement the constant buffers so they are available inside our shader
 //They also need to be unique over the entire solution since they can in fact be accessed from any shader
-IMPLEMENT_UNIFORM_BUFFER_STRUCT(FComputeShaderConstantParameters, TEXT("CSConstants"))
-IMPLEMENT_UNIFORM_BUFFER_STRUCT(FComputeShaderVariableParameters, TEXT("CSVariables"))
+IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT(FComputeShaderConstantParameters, "CSConstants");
+IMPLEMENT_GLOBAL_SHADER_PARAMETER_STRUCT(FComputeShaderVariableParameters, "CSVariables");
 
 FComputeShaderDeclaration::FComputeShaderDeclaration(const ShaderMetaType::CompiledShaderInitializerType& Initializer)
 : FGlobalShader(Initializer)
@@ -93,7 +93,7 @@ class FComputeShaderModule : public IModuleInterface
     virtual void ShutdownModule() override;
 };
 
-IMPLEMENT_MODULE(FComputeShaderModule, PixelShader)
+IMPLEMENT_MODULE(FComputeShaderModule, ComputeShader)
 
 void FComputeShaderModule::StartupModule()
 {
